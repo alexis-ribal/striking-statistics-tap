@@ -12,9 +12,7 @@ library(tidyverse)
 ##
 ## world.boundaries return an 'sf' ofbject which is a special
 ## type of data.frame with a column called 'geometry'
-world.shapefile.path <- file.path("datasets",
-                                  "WB country polygons",
-                                  "WB_CountryPolys.shp")
+world.shapefile.path <- file.path("/Users/alexis_pro/Documents/GitHub/striking-statistics-tap/R-for-TAP/datasets/WB country polygons/WB_CountryPolys.shp")
 world.boundaries.df <- read_sf(world.shapefile.path)
 
 ## We can already plot the outlines of the world countries using
@@ -85,8 +83,7 @@ africa.plot <- ggplot(data = africa.boundaries.df)+
 ## -- fyi, data downloaded from here:
 ##  https://tcdata360.worldbank.org/indicators/e8615298
 
-landlocked.dt.path <- file.path("datasets",
-                                "landlocked_countries.csv")
+landlocked.dt.path <- file.path("/Users/alexis_pro/Documents/GitHub/striking-statistics-tap/R-for-TAP/datasets/landlocked_countries.csv")
 
 landlocked.df.in <- read.csv(landlocked.dt.path)
 
@@ -133,9 +130,7 @@ landlocked.africa.plot
 
 
 country.centroids <- read_sf(
-    file.path("datasets",
-              "country_centroids_az8",
-              "country_centroids_az8.shp")) %>%
+    file.path("/Users/alexis_pro/Documents/GitHub/striking-statistics-tap/R-for-TAP/datasets/country_centroids_az8/country_centroids_az8.shp")) %>%
     filter(region_un == "Africa")
 
 
@@ -144,3 +139,5 @@ with.population.plot <- landlocked.africa.plot +
                aes(x = Longitude,
                    y = Latitude,
                    size = pop_est))
+
+with.population.plot
